@@ -72,6 +72,7 @@ Instalar osm2pgsql
 
 ```bash
 sudo apt-get install osm2pgsql
+sudo apt-get install postgresql-12-pgrouting
 ```
 
 Entrar a openstreetmaps.org y buscar área de interes, luego exportar los datos... estos son
@@ -86,4 +87,6 @@ createdb osml
 psql -d osml -c "CREATE EXTENSION postgis;"
 psql -d osml -c "CREATE EXTENSION hstore;"
 osm2pgsql --hstore-all -d osml ./data/map.osm
+psql -d osml
+CREATE EXTENSION pgrouting;
 ```
